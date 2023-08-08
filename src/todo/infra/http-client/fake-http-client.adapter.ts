@@ -14,15 +14,10 @@ const todos: Todo[] = [
 
 export class FakeHttpClientAdapter implements HttpClient<Todo> {
   public async get(): Promise<Todo> {
-    const todos = await this.performGet()
     return todos[0]
   }
 
-  private async performGet() {
-    return todos
-  }
-
   public async getAll(): Promise<Todo[]> {
-    return this.performGet()
+    return todos
   }
 }
