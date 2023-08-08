@@ -3,7 +3,7 @@ import 'dotenv/config'
 
 const environmentSchema = z.object({
   BASE_URL: z.string().url(),
-  HTTP_CLIENT: z.enum(['AXIOS', 'FETCH']).default('AXIOS'),
+  HTTP_CLIENT: z.enum(['AXIOS', 'FETCH', 'TEST']).default('AXIOS'),
   PRESENTER: z.enum(['JSON']).default('JSON'),
 })
 
