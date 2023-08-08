@@ -12,9 +12,9 @@ export class UniqueIdentityID {
   }
 
   public equals(other: UniqueIdentityID): boolean {
-    if (other instanceof UniqueIdentityID) {
-      return this.value.toString() === other.value.toString()
-    }
-    return false
+    return (
+      other instanceof UniqueIdentityID &&
+      this.value.toString() === other.value.toString()
+    )
   }
 }
