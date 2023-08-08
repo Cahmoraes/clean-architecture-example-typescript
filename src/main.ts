@@ -6,29 +6,52 @@ import { HttpGatewayFactory as HttpGatewayPostFactory } from './post/infra/facto
 import { UseCaseFactory as UseCaseTodoFactory } from './todo/infra/factories/use-case-factory'
 import { UseCaseFactory as UseCasePostFactory } from './post/infra/factories/use-case-factory'
 
-async function main(baseURL: string) {
-  const httpClient = HttpClientFactory.create({
-    baseURL,
-  })
+class Main {
+  private readonly httpGatewayTodoFactory: HttpGatewayTodoFactory
+  private readonly httpGatewayPostFactory: HttpGatewayPostFactory
 
-  const httpGatewayTodoFactory = new HttpGatewayTodoFactory(httpClient)
-  const httpGatewayPostFactory = new HttpGatewayPostFactory(httpClient)
-  const getTodos = UseCaseTodoFactory.createGetTodos(httpGatewayTodoFactory)
-  const createTodo = UseCasePostFactory.createCreateTodo(httpGatewayPostFactory)
-
-  try {
-    const { todos } = await getTodos.execute()
-    console.log(todos)
-    console.log('=========== create =========')
-    const { post } = await createTodo.execute({
-      title: 'foo',
-      body: 'bar',
-      userId: 1,
+  constructor(private baseURL: string) {
+    const httpClient = HttpClientFactory.create({
+      baseURL: this.baseURL,
     })
-    console.log(post)
-  } catch (error) {
-    console.error(error)
+
+    this.httpGatewayTodoFactory = new HttpGatewayTodoFactory(httpClient)
+    this.httpGatewayPostFactory = new HttpGatewayPostFactory(httpClient)
+  }
+
+  async init() {
+    this.initTodos()
+    this.initPosts()
+  }
+
+  private async initTodos() {
+    try {
+      const getTodosUseCase = UseCaseTodoFactory.createGetTodos(
+        this.httpGatewayTodoFactory,
+      )
+      const { todos } = await getTodosUseCase.execute()
+      console.log(todos)
+    } catch (error) {
+      console.error(error)
+    }
+  }
+
+  private async initPosts() {
+    try {
+      const createPostUseCase = UseCasePostFactory.createCreatePost(
+        this.httpGatewayPostFactory,
+      )
+      console.log('=========== create =========')
+      const { post } = await createPostUseCase.execute({
+        title: 'foo',
+        body: 'bar',
+        userId: 1,
+      })
+      console.log(post)
+    } catch (error) {
+      console.error(error)
+    }
   }
 }
 
-main(env.BASE_URL)
+new Main(env.BASE_URL).init()

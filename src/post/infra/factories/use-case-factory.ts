@@ -6,11 +6,7 @@ export const enum PresenterTypes {
 }
 
 export class UseCaseFactory {
-  public static createGetTodos(todoGateway: HttpGatewayFactory) {
-    return new CreatePost(todoGateway)
-  }
-
-  public static createCreateTodo(todoGateway: HttpGatewayFactory) {
+  public static createCreatePost(todoGateway: HttpGatewayFactory) {
     return new CreatePost(todoGateway)
   }
 }

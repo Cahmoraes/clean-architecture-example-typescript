@@ -1,4 +1,3 @@
-import { CreateTodo } from '@/todo/application/use-cases/create-todo'
 import { Todo } from '../../application/interfaces/todo'
 import { Presenter } from '../../application/presenter'
 import { GetTodos } from '../../application/use-cases/get-todos'
@@ -12,10 +11,6 @@ export const enum PresenterTypes {
 export class UseCaseFactory {
   public static createGetTodos(todoGateway: HttpGatewayFactory) {
     return new GetTodos(todoGateway, this.createPresenter())
-  }
-
-  public static createCreateTodo(todoGateway: HttpGatewayFactory) {
-    return new CreateTodo(todoGateway)
   }
 
   private static createPresenter(): Presenter<Todo> {
