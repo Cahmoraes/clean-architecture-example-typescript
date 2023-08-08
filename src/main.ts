@@ -1,5 +1,4 @@
 import 'dotenv/config'
-
 import { env } from './core/env'
 import { HttpClientFactory } from './todo/infra/http-client/factory/http-client-factory'
 import { HttpGatewayFactory } from './todo/infra/factories/http-gateway-factory'
