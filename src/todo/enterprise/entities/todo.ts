@@ -8,7 +8,7 @@ export interface TodoProps {
 }
 
 export class Todo extends Entity<TodoProps> {
-  static create(props: TodoProps, id: string) {
+  static create(props: TodoProps, id?: string) {
     return new Todo(props, id)
   }
 

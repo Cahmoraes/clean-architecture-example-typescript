@@ -10,6 +10,11 @@ export class AxiosHttpClientAdapter<Type> implements HttpClient<Type> {
     this.http = axios.create(props)
   }
 
+  public async post<PostType>(endpoint: string, data: PostType): Promise<Type> {
+    const result = await this.http.post(endpoint, data)
+    return result.data
+  }
+
   public async get(endpoint: string): Promise<Type> {
     return this.performGet(endpoint)
   }

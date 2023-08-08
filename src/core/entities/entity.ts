@@ -4,7 +4,7 @@ export abstract class Entity<Type> {
   protected readonly props: Type
   private readonly _id: UniqueIdentityID
 
-  constructor(props: Type, id?: string) {
+  protected constructor(props: Type, id?: string) {
     this.props = props
     this._id = new UniqueIdentityID(id)
   }

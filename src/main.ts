@@ -11,10 +11,18 @@ async function main(baseURL: string) {
 
   const httpGatewayFactory = new HttpGatewayFactory(httpClient)
   const getTodos = UseCaseFactory.createGetTodos(httpGatewayFactory)
+  const createTodo = UseCaseFactory.createCreateTodo(httpGatewayFactory)
 
   try {
     const { todos } = await getTodos.execute()
     console.log(todos)
+    console.log('=========== create =========')
+    const { todo } = await createTodo.execute({
+      title: 'foo',
+      body: 'bar',
+      userId: 1,
+    })
+    console.log(todo)
   } catch (error) {
     console.error(error)
   }

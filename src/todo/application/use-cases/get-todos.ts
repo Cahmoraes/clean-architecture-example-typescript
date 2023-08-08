@@ -3,7 +3,7 @@ import { TodoGateway } from '../gateways/todo-gateway'
 import { Todo } from '../interfaces/todo'
 import { Presenter } from '../presenter'
 
-export interface OutputData {
+export interface GetTodosOutput {
   todos: Todo[]
 }
 
@@ -17,7 +17,7 @@ export class GetTodos {
     this.todoGateway = gatewayFactory.createTodoGateway()
   }
 
-  async execute(): Promise<OutputData> {
+  async execute(): Promise<GetTodosOutput> {
     const todos = await this.todos()
     return {
       todos: this.presenter.present(todos),
