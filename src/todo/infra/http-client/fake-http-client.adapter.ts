@@ -20,7 +20,7 @@ export class FakeHttpClientAdapter implements HttpClient<Todo> {
 
   public async post<PostType>(_: string, data: PostType): Promise<Todo> {
     this.isCreateTodoDTO(data)
-    const newIndexTodo = todos.push({
+    todos.push({
       ...data,
       id: 3,
       completed: false,
