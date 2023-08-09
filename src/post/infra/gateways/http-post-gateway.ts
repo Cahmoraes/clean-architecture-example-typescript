@@ -17,7 +17,7 @@ export class HttpPostGateway implements PostGateway {
     return this.httpClient.post(TodoEndpoint.POST_TODOS, aTodoDTO)
   }
 
-  public todos(): Promise<Post[]> {
+  public async todos(): Promise<Post[]> {
     return this.httpClient.getAll(TodoEndpoint.GET_TODOS)
   }
 }
