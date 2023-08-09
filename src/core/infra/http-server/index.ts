@@ -1,6 +1,4 @@
-export type Handler = (req: Request, res: Response) => void
-
-export interface HttpServer {
-  on(method: string, url: string, handler: Handler): Promise<void>
+export interface HttpServer<RouteHandlerMethod> {
+  on(method: string, url: string, handler: RouteHandlerMethod): Promise<void>
   listen(port: number): Promise<void>
 }

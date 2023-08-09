@@ -1,5 +1,5 @@
-import Fastify from 'fastify'
-import { Handler, HttpServer } from '.'
+import Fastify, { RouteHandlerMethod } from 'fastify'
+import { HttpServer } from '.'
 
 export const enum HTTP_METHODS {
   GET = 'get',
@@ -9,13 +9,13 @@ export const enum HTTP_METHODS {
   DELETE = 'delete',
 }
 
-export class FastifyHttpServer implements HttpServer {
+export class FastifyHttpServer implements HttpServer<RouteHandlerMethod> {
   private app = Fastify()
 
   public async on(
     method: HTTP_METHODS,
     url: string,
-    handler: any,
+    handler: RouteHandlerMethod,
   ): Promise<void> {
     this.app[method](url, handler)
   }
