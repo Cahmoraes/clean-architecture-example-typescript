@@ -1,4 +1,4 @@
-import { Post } from '../interfaces/post'
+import { Post } from '../dtos/post'
 
 export type CreatePostProps = Omit<Post, 'id'>
 

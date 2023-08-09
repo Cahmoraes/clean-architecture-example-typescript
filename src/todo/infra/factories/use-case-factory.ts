@@ -1,4 +1,4 @@
-import { Todo } from '../../application/interfaces/todo'
+import { Todo } from '../../application/dtos/todo'
 import { Presenter } from '../../application/presenter'
 import { GetTodos } from '../../application/use-cases/get-todos'
 import { JSONPresenter } from '../presenters/json-presenter'

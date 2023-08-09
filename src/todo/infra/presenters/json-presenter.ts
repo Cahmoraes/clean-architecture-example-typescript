@@ -1,4 +1,4 @@
-import { Todo } from '../../application/interfaces/todo'
+import { Todo } from '../../application/dtos/todo'
 import { Presenter } from '../../application/presenter'
 
 export class JSONPresenter implements Presenter<Todo> {

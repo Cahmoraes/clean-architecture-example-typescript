@@ -1,5 +1,5 @@
 import { CreatePost } from '@/post/application/use-cases/create-post'
-import { Todo } from '@/todo/application/interfaces/todo'
+import { Todo } from '@/todo/application/dtos/todo'
 import { Presenter } from '@/todo/application/presenter'
 import { GetTodos } from '@/todo/application/use-cases/get-todos'
 import { JSONPresenter } from '@/todo/infra/presenters/json-presenter'

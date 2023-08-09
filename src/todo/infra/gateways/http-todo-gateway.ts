@@ -3,7 +3,7 @@ import {
   CreateTodoProps,
   TodoGateway,
 } from '../../application/gateways/todo-gateway'
-import { Todo } from '../../application/interfaces/todo'
+import { Todo } from '../../application/dtos/todo'
 
 export const enum TodoEndpoint {
   GET_TODOS = '/todos?_limit=3',

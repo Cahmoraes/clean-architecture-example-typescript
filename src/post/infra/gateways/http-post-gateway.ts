@@ -3,7 +3,7 @@ import {
   CreatePostProps,
   PostGateway,
 } from '../../application/gateways/post-gateway'
-import { Post } from '../../application/interfaces/post'
+import { Post } from '../../application/dtos/post'
 
 export const enum TodoEndpoint {
   GET_TODOS = '/todos?_limit=3',

@@ -1,4 +1,4 @@
-import { Todo } from '../interfaces/todo'
+import { Todo } from '../dtos/todo'
 
 export type CreateTodoProps = Omit<Todo, 'id' | 'completed'>
 
