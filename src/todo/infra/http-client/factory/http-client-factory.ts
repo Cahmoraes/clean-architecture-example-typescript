@@ -1,10 +1,9 @@
 import { AxiosHttpClientAdapter } from '../axios-http-client.adapter'
 import { CreateAxiosDefaults } from 'axios'
 import { FetchHttpClientAdapter } from '../fetch-http-client.adapter'
-import { HttpClient } from '..'
-import { Todo } from '@/domain/todo/application/interfaces/todo'
 import { env } from '@/core/env'
 import { FakeHttpClientAdapter } from '../fake-http-client.adapter'
+import { HttpClient } from '@/core/infra/http-client'
 
 export type HttpClientFactoryProps = CreateAxiosDefaults & {
   baseURL: string
@@ -17,7 +16,7 @@ export const enum HttpClientTypes {
 }
 
 export class HttpClientFactory {
-  static create(props: HttpClientFactoryProps): HttpClient<Todo> {
+  static create(props: HttpClientFactoryProps): HttpClient {
     switch (env.HTTP_CLIENT) {
       case HttpClientTypes.FETCH:
         return new FetchHttpClientAdapter(props.baseURL)

@@ -1,9 +1,9 @@
+import { HttpClient } from '@/core/infra/http-client'
 import {
   CreateTodoProps,
   TodoGateway,
 } from '../../application/gateways/todo-gateway'
 import { Todo } from '../../application/interfaces/todo'
-import { HttpClient } from '../http-client'
 
 export const enum TodoEndpoint {
   GET_TODOS = '/todos?_limit=3',
@@ -11,7 +11,7 @@ export const enum TodoEndpoint {
 }
 
 export class HttpTodoGateway implements TodoGateway {
-  constructor(private httpClient: HttpClient<Todo>) {}
+  constructor(private httpClient: HttpClient) {}
 
   public async create(aTodoDTO: CreateTodoProps): Promise<Todo> {
     return this.httpClient.post(TodoEndpoint.POST_TODOS, aTodoDTO)
