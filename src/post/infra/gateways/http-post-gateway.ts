@@ -1,17 +1,17 @@
+import { HttpClient } from '@/core/infra/http-client'
 import {
   CreatePostProps,
   PostGateway,
 } from '../../application/gateways/post-gateway'
 import { Post } from '../../application/interfaces/post'
-import { HttpClient } from '../http-client'
 
 export const enum TodoEndpoint {
   GET_TODOS = '/todos?_limit=3',
   POST_TODOS = '/posts',
 }
 
-export class HttpTodoGateway implements PostGateway {
-  constructor(private httpClient: HttpClient<Post>) {}
+export class HttpPostGateway implements PostGateway {
+  constructor(private httpClient: HttpClient) {}
 
   public async create(aTodoDTO: CreatePostProps): Promise<Post> {
     return this.httpClient.post(TodoEndpoint.POST_TODOS, aTodoDTO)

@@ -1,21 +1,17 @@
 import 'dotenv/config'
 import { env } from './core/env'
 import { HttpClientFactory } from './todo/infra/http-client/factory/http-client-factory'
-import { HttpGatewayFactory as HttpGatewayTodoFactory } from './todo/infra/factories/http-gateway-factory'
-import { HttpGatewayFactory as HttpGatewayPostFactory } from './post/infra/factories/http-gateway-factory'
-import { UseCaseFactory as UseCaseTodoFactory } from './todo/infra/factories/use-case-factory'
-import { UseCaseFactory as UseCasePostFactory } from './post/infra/factories/use-case-factory'
+import { UseCaseFactory } from './core/infra/factories/use-case-factory'
+import { HttpGatewayFactory } from './core/infra/factories/http-gateway-factory'
 
 class Main {
-  private readonly httpGatewayTodoFactory: HttpGatewayTodoFactory
-  private readonly httpGatewayPostFactory: HttpGatewayPostFactory
+  private readonly httpGatewayFactory: HttpGatewayFactory
 
   constructor(private baseURL: string) {
     const httpClient = HttpClientFactory.create({
       baseURL: this.baseURL,
     })
-    this.httpGatewayTodoFactory = new HttpGatewayTodoFactory(httpClient)
-    this.httpGatewayPostFactory = new HttpGatewayPostFactory(httpClient)
+    this.httpGatewayFactory = new HttpGatewayFactory(httpClient)
   }
 
   async init(): Promise<void> {
@@ -25,8 +21,8 @@ class Main {
 
   private async initTodos(): Promise<void> {
     try {
-      const getTodosUseCase = UseCaseTodoFactory.createGetTodos(
-        this.httpGatewayTodoFactory,
+      const getTodosUseCase = UseCaseFactory.createGetTodos(
+        this.httpGatewayFactory,
       )
       const { todos } = await getTodosUseCase.execute()
       console.log(todos)
@@ -37,8 +33,8 @@ class Main {
 
   private async initPosts(): Promise<void> {
     try {
-      const createPostUseCase = UseCasePostFactory.createCreatePost(
-        this.httpGatewayPostFactory,
+      const createPostUseCase = UseCaseFactory.createCreatePost(
+        this.httpGatewayFactory,
       )
       console.log('=========== create =========')
       const { post } = await createPostUseCase.execute({
