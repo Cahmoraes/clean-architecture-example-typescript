@@ -4,7 +4,7 @@ import { HttpGatewayFactory } from '../http-gateway/factory/http-gateway-factory
 
 export class HttpController {
   constructor(
-    private httpServer: HttpServer,
+    private httpServer: HttpServer<unknown>,
     private httpGatewayFactory: HttpGatewayFactory,
     private useCaseFactory: UseCaseFactory,
   ) {

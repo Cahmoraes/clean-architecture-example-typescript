@@ -1,5 +1,5 @@
+import { Presenter } from '@/core/application/presenter'
 import { Todo } from '../../application/dtos/todo'
-import { Presenter } from '../../application/presenter'
 import { GetTodos } from '../../application/use-cases/get-todos'
 import { JSONPresenter } from '../presenters/json-presenter'
 import { HttpGatewayFactory } from './http-gateway-factory'

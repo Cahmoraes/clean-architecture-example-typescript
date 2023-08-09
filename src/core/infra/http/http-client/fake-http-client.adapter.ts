@@ -1,6 +1,6 @@
 import { CreatePostProps } from '@/post/application/gateways/post-gateway'
-import { HttpClient } from '@/core/infra/http-client'
 import { Post } from '@/post/application/dtos/post'
+import { HttpClient } from '.'
 
 const posts: Post[] = [
   {

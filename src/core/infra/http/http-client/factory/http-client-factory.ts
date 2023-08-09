@@ -3,7 +3,7 @@ import { CreateAxiosDefaults } from 'axios'
 import { FetchHttpClientAdapter } from '../fetch-http-client.adapter'
 import { env } from '@/core/env'
 import { FakeHttpClientAdapter } from '../fake-http-client.adapter'
-import { HttpClient } from '@/core/infra/http-client'
+import { HttpClient } from '..'
 
 export type HttpClientFactoryProps = CreateAxiosDefaults & {
   baseURL: string

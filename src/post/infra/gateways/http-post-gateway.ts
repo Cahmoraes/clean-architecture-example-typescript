@@ -1,9 +1,9 @@
-import { HttpClient } from '@/core/infra/http-client'
 import {
   CreatePostProps,
   PostGateway,
 } from '../../application/gateways/post-gateway'
 import { Post } from '../../application/dtos/post'
+import { HttpClient } from '@/core/infra/http/http-client'
 
 export const enum TodoEndpoint {
   GET_TODOS = '/todos?_limit=3',

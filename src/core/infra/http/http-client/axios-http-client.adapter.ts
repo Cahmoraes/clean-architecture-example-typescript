@@ -1,5 +1,5 @@
-import { HttpClient } from '@/core/infra/http-client'
 import axios, { AxiosInstance, CreateAxiosDefaults } from 'axios'
+import { HttpClient } from '.'
 
 export type AxiosHttpClientAdapterProps = CreateAxiosDefaults
 

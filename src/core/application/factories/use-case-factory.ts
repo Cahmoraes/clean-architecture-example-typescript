@@ -2,8 +2,8 @@ import { CreatePost } from '@/post/application/use-cases/create-post'
 import { Todo } from '@/todo/application/dtos/todo'
 import { GetTodos } from '@/todo/application/use-cases/get-todos'
 import { JSONPresenter } from '@/todo/infra/presenters/json-presenter'
-import { HttpGatewayFactory } from '../../infra/http-gateway/factory/http-gateway-factory'
 import { Presenter } from '../presenter'
+import { HttpGatewayFactory } from '@/core/infra/http/http-gateway/factory/http-gateway-factory'
 
 export const enum PresenterTypes {
   JSON = 'JSON',

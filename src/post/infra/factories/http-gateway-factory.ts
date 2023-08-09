@@ -1,4 +1,4 @@
-import { HttpClient } from '@/core/infra/http-client'
+import { HttpClient } from '@/core/infra/http/http-client'
 import { GatewayFactory } from '../../application/factories/gateway-factory'
 import { PostGateway } from '../../application/gateways/post-gateway'
 import { HttpPostGateway } from '../gateways/http-post-gateway'

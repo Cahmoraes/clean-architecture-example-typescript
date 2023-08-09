@@ -1,5 +1,5 @@
-import { HttpClient } from '@/core/infra/http-client'
 import { Post } from '@/post/application/dtos/post'
+import { HttpClient } from '.'
 
 export class FetchHttpClientAdapter implements HttpClient {
   constructor(private baseURL: string) {}
