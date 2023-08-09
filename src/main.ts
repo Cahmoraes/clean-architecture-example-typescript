@@ -3,50 +3,16 @@ import { env } from './core/env'
 import { UseCaseFactory } from './core/application/factories/use-case-factory'
 import { HttpGatewayFactory } from './core/infra/http-gateway/factory/http-gateway-factory'
 import { HttpClientFactory } from './core/infra/http-client/factory/http-client-factory'
+import { HttpServerImpl } from './core/infra/http-server/http-server-impl'
+import { HttpController } from './core/infra/http-controller'
 
-class Main {
-  private readonly httpGatewayFactory: HttpGatewayFactory
-
-  constructor(private baseURL: string) {
-    const httpClient = HttpClientFactory.create({
-      baseURL: this.baseURL,
-    })
-    this.httpGatewayFactory = new HttpGatewayFactory(httpClient)
-  }
-
-  async init(): Promise<void> {
-    this.initTodos()
-    this.initPosts()
-  }
-
-  private async initTodos(): Promise<void> {
-    try {
-      const getTodosUseCase = UseCaseFactory.createGetTodos(
-        this.httpGatewayFactory,
-      )
-      const { todos } = await getTodosUseCase.execute()
-      console.log(todos)
-    } catch (error) {
-      console.error(error)
-    }
-  }
-
-  private async initPosts(): Promise<void> {
-    try {
-      const createPostUseCase = UseCaseFactory.createCreatePost(
-        this.httpGatewayFactory,
-      )
-      console.log('=========== create =========')
-      const { post } = await createPostUseCase.execute({
-        title: 'foo',
-        body: 'bar',
-        userId: 1,
-      })
-      console.log(post)
-    } catch (error) {
-      console.error(error)
-    }
-  }
+async function main() {
+  const httpServer = new HttpServerImpl()
+  const httpClient = HttpClientFactory.create({ baseURL: env.BASE_URL })
+  const httpGatewayFactory = new HttpGatewayFactory(httpClient)
+  const useCaseFactory = new UseCaseFactory(httpGatewayFactory)
+  new HttpController(httpServer, httpGatewayFactory, useCaseFactory)
+  httpServer.listen(env.PORT)
 }
 
-new Main(env.BASE_URL).init()
+main()

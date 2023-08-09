@@ -5,6 +5,7 @@ const environmentSchema = z.object({
   BASE_URL: z.string().url(),
   HTTP_CLIENT: z.enum(['AXIOS', 'FETCH', 'TEST']).default('AXIOS'),
   PRESENTER: z.enum(['JSON']).default('JSON'),
+  PORT: z.coerce.number().default(3303),
 })
 
 const _env = environmentSchema.safeParse(process.env)

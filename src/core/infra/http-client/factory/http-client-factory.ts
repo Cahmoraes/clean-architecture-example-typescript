@@ -16,6 +16,10 @@ export const enum HttpClientTypes {
 }
 
 export class HttpClientFactory {
+  private constructor() {
+    throw new Error('Should not instantiate HttpClientFactory')
+  }
+
   static create(props: HttpClientFactoryProps): HttpClient {
     switch (env.HTTP_CLIENT) {
       case HttpClientTypes.FETCH:
