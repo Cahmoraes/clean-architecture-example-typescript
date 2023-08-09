@@ -1,7 +1,7 @@
-import { HttpClient } from '.'
+import { HttpClient } from '@/core/infra/http-client'
 import { Post } from '../../application/interfaces/post'
 
-export class FetchHttpClientAdapter implements HttpClient<Post> {
+export class FetchHttpClientAdapter implements HttpClient {
   constructor(private baseURL: string) {}
 
   public async post<PostType>(endpoint: string, data: PostType): Promise<Post> {

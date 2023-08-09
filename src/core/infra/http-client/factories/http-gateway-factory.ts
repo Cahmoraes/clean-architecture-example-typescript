@@ -3,7 +3,7 @@ import { PostGateway } from '@/post/application/gateways/post-gateway'
 import { HttpPostGateway } from '@/post/infra/gateways/http-post-gateway'
 import { TodoGateway } from '@/todo/application/gateways/todo-gateway'
 import { HttpTodoGateway } from '@/todo/infra/gateways/http-todo-gateway'
-import { HttpClient } from '../http-client'
+import { HttpClient } from '..'
 
 export class HttpGatewayFactory implements GatewayFactory {
   constructor(private httpClient: HttpClient) {}

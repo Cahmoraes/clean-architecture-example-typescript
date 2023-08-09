@@ -1,9 +1,9 @@
-import { HttpClient } from '.'
+import { HttpClient } from '@/core/infra/http-client'
 import axios, { AxiosInstance, CreateAxiosDefaults } from 'axios'
 
 export type AxiosHttpClientAdapterProps = CreateAxiosDefaults
 
-export class AxiosHttpClientAdapter<Type> implements HttpClient<Type> {
+export class AxiosHttpClientAdapter<Type> implements HttpClient {
   private readonly http: AxiosInstance
 
   constructor(props: AxiosHttpClientAdapterProps) {

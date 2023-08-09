@@ -1,6 +1,6 @@
 import { CreateTodoProps } from '@/todo/application/gateways/todo-gateway'
-import { HttpClient } from '.'
 import { Todo } from '../../application/interfaces/todo'
+import { HttpClient } from '@/core/infra/http-client'
 
 const todos: Todo[] = [
   { userId: 1, id: 1, title: 'fake title', completed: false },
@@ -13,7 +13,7 @@ const todos: Todo[] = [
   { userId: 1, id: 3, title: 'fake title 3', completed: false },
 ]
 
-export class FakeHttpClientAdapter implements HttpClient<Todo> {
+export class FakeHttpClientAdapter implements HttpClient {
   public async get(): Promise<Todo> {
     return todos[0]
   }

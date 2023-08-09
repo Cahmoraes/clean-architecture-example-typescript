@@ -1,7 +1,7 @@
-import { HttpClient } from '.'
+import { HttpClient } from '@/core/infra/http-client'
 import { Todo } from '../../application/interfaces/todo'
 
-export class FetchHttpClientAdapter implements HttpClient<Todo> {
+export class FetchHttpClientAdapter implements HttpClient {
   constructor(private baseURL: string) {}
 
   public async post<PostType>(endpoint: string, data: PostType): Promise<Todo> {

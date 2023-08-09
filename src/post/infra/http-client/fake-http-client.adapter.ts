@@ -1,6 +1,6 @@
 import { CreatePostProps } from '@/post/application/gateways/post-gateway'
-import { HttpClient } from '.'
 import { Post } from '../../application/interfaces/post'
+import { HttpClient } from '@/core/infra/http-client'
 
 const posts: Post[] = [
   {
@@ -18,7 +18,7 @@ const posts: Post[] = [
   },
 ]
 
-export class FakeHttpClientAdapter implements HttpClient<Post> {
+export class FakeHttpClientAdapter implements HttpClient {
   public async get(): Promise<Post> {
     return posts[0]
   }
