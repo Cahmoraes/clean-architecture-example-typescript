@@ -1,4 +1,3 @@
-````markdown
 # Demonstração de Arquitetura Limpa
 
 Este repositório contém um exemplo de aplicação TypeScript que demonstra o uso de Arquitetura Limpa com a implementação de técnicas de plugins. A aplicação é desenvolvida seguindo os princípios da Arquitetura Limpa para manutenção, testabilidade e escalabilidade.
