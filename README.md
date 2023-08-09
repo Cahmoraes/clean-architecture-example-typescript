@@ -1,4 +1,6 @@
 # Demonstração de Arquitetura Limpa
+<img src="https://github.com/Cahmoraes/clean-architecture-example-typescript/blob/master/references/clean_arch.png">
+
 
 Este repositório contém um exemplo de aplicação TypeScript que demonstra o uso de Arquitetura Limpa com a implementação de técnicas de plugins. A aplicação é desenvolvida seguindo os princípios da Arquitetura Limpa para manutenção, testabilidade e escalabilidade.
 
@@ -9,20 +11,20 @@ Este repositório contém um exemplo de aplicação TypeScript que demonstra o u
 
 ## Configuração
 
-1. Clone o repositório:
-   ```sh
+Clone o repositório:
+```sh
    git clone git@github.com:Cahmoraes/clean-architecture-example-typescript.git
    cd clean-architecture-example-typescript
    ```
 ````
 
-2. Instale as dependências:
+Instale as dependências:
 
-   ```sh
+ ```sh
    npm install
-   ```
+ ```
 
-3. Crie um arquivo `.env` na raiz do projeto e defina a variável `BASE_URL`:
+Crie um arquivo `.env` na raiz do projeto e defina a variável `BASE_URL`:
    ```env
    BASE_URL=https://jsonplaceholder.typicode.com
    HTTP_CLIENT=AXIOS | FETCH | TEST
