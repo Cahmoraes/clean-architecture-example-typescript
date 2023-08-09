@@ -26,6 +26,7 @@ Este repositório contém um exemplo de aplicação TypeScript que demonstra o u
 3. Crie um arquivo `.env` na raiz do projeto e defina a variável `BASE_URL`:
    ```env
    BASE_URL=https://jsonplaceholder.typicode.com
+   HTTP_CLIENT=AXIOS | FETCH | TEST
    ```
 
 ## Uso

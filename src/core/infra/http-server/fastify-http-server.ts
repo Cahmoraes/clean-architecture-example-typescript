@@ -1,15 +1,23 @@
 import Fastify from 'fastify'
 import { Handler, HttpServer } from '.'
 
-export class HttpServerImpl implements HttpServer {
+export const enum HTTP_METHODS {
+  GET = 'get',
+  POST = 'post',
+  PUT = 'put',
+  PATCH = 'patch',
+  DELETE = 'delete',
+}
+
+export class FastifyHttpServer implements HttpServer {
   private app = Fastify()
 
   public async on(
-    method: string,
+    method: HTTP_METHODS,
     url: string,
-    handler: Handler,
+    handler: any,
   ): Promise<void> {
-    return this.app[method](url, handler)
+    this.app[method](url, handler)
   }
 
   public async listen(port: number): Promise<void> {
