@@ -1,8 +1,7 @@
 import 'dotenv/config'
 import { env } from './core/env'
-
-import { UseCaseFactory } from './core/factories/use-case-factory'
-import { HttpGatewayFactory } from './core/factories/http-gateway-factory'
+import { UseCaseFactory } from './core/application/factories/use-case-factory'
+import { HttpGatewayFactory } from './core/infra/http-gateway/factory/http-gateway-factory'
 import { HttpClientFactory } from './core/infra/http-client/factory/http-client-factory'
 
 class Main {

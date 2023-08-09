@@ -3,7 +3,7 @@ import { Todo } from '@/todo/application/interfaces/todo'
 import { Presenter } from '@/todo/application/presenter'
 import { GetTodos } from '@/todo/application/use-cases/get-todos'
 import { JSONPresenter } from '@/todo/infra/presenters/json-presenter'
-import { HttpGatewayFactory } from './http-gateway-factory'
+import { HttpGatewayFactory } from '../../infra/http-gateway/factory/http-gateway-factory'
 
 export const enum PresenterTypes {
   JSON = 'JSON',
