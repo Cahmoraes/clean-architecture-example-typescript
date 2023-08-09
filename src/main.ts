@@ -14,17 +14,16 @@ class Main {
     const httpClient = HttpClientFactory.create({
       baseURL: this.baseURL,
     })
-
     this.httpGatewayTodoFactory = new HttpGatewayTodoFactory(httpClient)
     this.httpGatewayPostFactory = new HttpGatewayPostFactory(httpClient)
   }
 
-  async init() {
+  async init(): Promise<void> {
     this.initTodos()
     this.initPosts()
   }
 
-  private async initTodos() {
+  private async initTodos(): Promise<void> {
     try {
       const getTodosUseCase = UseCaseTodoFactory.createGetTodos(
         this.httpGatewayTodoFactory,
@@ -36,7 +35,7 @@ class Main {
     }
   }
 
-  private async initPosts() {
+  private async initPosts(): Promise<void> {
     try {
       const createPostUseCase = UseCasePostFactory.createCreatePost(
         this.httpGatewayPostFactory,
