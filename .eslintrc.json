@@ -4,6 +4,18 @@
   ],
   "rules": {
     "no-useless-constructor": "off",
-    "no-new": "off"
+    "no-new": "off",
+    "prettier/prettier": [
+      "error",
+      {
+        "arrowParens": "always",
+        "printWidth": 80,
+        "singleQuote": true,
+        "trailingComma": "all",
+        "semi": false,
+        "endOfLine": "auto",
+        "tabWidth": 2
+      }
+    ]
   }
 }

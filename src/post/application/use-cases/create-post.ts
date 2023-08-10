@@ -1,6 +1,6 @@
-import { GatewayFactory } from '../factories/gateway-factory'
 import { PostGateway } from '../gateways/post-gateway'
 import { Post } from '../dtos/post'
+import { GatewayFactory } from '@/core/application/factories/gateway-factory'
 
 export interface CreatePostInput {
   title: string

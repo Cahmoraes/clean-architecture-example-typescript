@@ -1,7 +1,7 @@
 import { Presenter } from '@/core/application/presenter'
-import { GatewayFactory } from '../factories/gateway-factory'
 import { TodoGateway } from '../gateways/todo-gateway'
 import { Todo } from '../dtos/todo'
+import { GatewayFactory } from '@/core/application/factories/gateway-factory'
 
 export interface GetTodosOutput {
   todos: Todo[]
